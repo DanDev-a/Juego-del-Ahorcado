@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Ahorcado {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         
         //Clase scanner para que el usuario escriba
         Scanner teclado = new Scanner(System.in);
@@ -9,6 +9,7 @@ public class Ahorcado {
         //Declaraciones y asignaciones
         String palabraSecreta = "inteligencia";
         int intentosMaximos = 10;
+        int intentosFallidos = 0;
         int intentos = 0;
         boolean palabraAdivinada = false;         
 
@@ -42,6 +43,7 @@ public class Ahorcado {
 
                 if(!letraCorrecta){
                     intentos++;
+                    intentosFallidos++;
                     System.out.println("Letra Incorrecta!!.. te quedan " + (intentosMaximos - intentos) + " intentos.") ;
                 }
 
@@ -49,11 +51,73 @@ public class Ahorcado {
                     palabraAdivinada = true;
                     System.out.println("Felicidades, has adivinado la palbra secreta: " + palabraSecreta);
                 }
+                dibujarAhorcado(intentosFallidos);
+                System.out.println(); // Salto de línea para claridad entre turnos
             }
             if (!palabraAdivinada) {
                 System.out.println("Que pena... te haz quedado sin intentos.  GAME OVER ");
-        }
-
+            }
         teclado.close();
     }
+    private static void dibujarAhorcado(int intentosFallidos) {
+        switch (intentosFallidos){
+            case 0:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |     ");
+                    System.out.println(" |     ");
+                    System.out.println(" |     ");
+                    System.out.println("_|_    ");
+                    break;
+            case 1:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |     ");
+                    System.out.println(" |     ");
+                    System.out.println("_|_    ");
+                    break;
+            case 2:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |     ");
+                    System.out.println("_|_    ");
+                    break;
+            case 3:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |  /| ");
+                    System.out.println(" |     ");
+                    System.out.println("_|_    ");
+                    break;
+            case 4:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |  /|\\");
+                    System.out.println(" |     ");
+                    System.out.println("_|_    ");
+                    break;
+            case 5:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |  /|\\");
+                    System.out.println(" |  /  ");
+                    System.out.println("_|_    ");
+                    break;
+            case 6:
+                    System.out.println(" _____ ");
+                    System.out.println(" |   | ");
+                    System.out.println(" |   O ");
+                    System.out.println(" |  /|\\");
+                    System.out.println(" |  / \\");
+                    System.out.println("_|_    ");
+                    break;  
+        }
+    }
 }
+
