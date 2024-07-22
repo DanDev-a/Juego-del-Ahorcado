@@ -60,6 +60,8 @@ public class Ahorcado {
         teclado.close();
     }
     private static void dibujarAhorcado(int intentosFallidos) {
+
+        //Parte grafica de consola
         switch (intentosFallidos){
             case 0:
                     System.out.println(" _____ ");
